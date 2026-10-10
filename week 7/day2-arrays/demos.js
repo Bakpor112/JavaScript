@@ -18,9 +18,6 @@ fruits.unshift("guava"); console.log(fruits); // add to start
 fruits.shift();          console.log(fruits); // remove from start
 fruits.splice(1, 1);     console.log(fruits); // remove 1 item at index 1 ("mango")
 
-const mixed = ["Ada", 25, true, null]; // any types
-console.log(mixed);
-
 // ---------- Demo 2: Arrays are references ----------
 const a = [1, 2, 3];
 const b = a;        // same array, two labels
@@ -95,3 +92,53 @@ console.log(cartTotal); // 25000
 
 const inStockNames = cart.filter(i => i.inStock).map(i => i.name);
 console.log(inStockNames); // ["Keyboard", "Mouse"]
+
+
+
+// lesson work
+const mixed = ["Ada", 25, true, null]; // any types
+console.log(mixed);
+
+const items = [true, 500, "leah", null, 81, false, "joshua", ["savior", 22, undefined, "101"], {age: 45}];
+// how to access savior
+items[7][0]; // "savior"
+items[3];    // null
+items[8].age    // 45
+// how to add and remove items from the array
+items.push("ada");
+items.pop();
+items.unshift("joshua");
+items.shift();
+items.splice(2, 1); // remove 1 item at index 2
+
+// how to copy an array
+const evenNumbers = [2, 4, 6, 8]
+const newNumbs = evenNumbers;
+newNumbs.push(10)
+console.log(evenNumbers) //this is referencing anf not copying the array
+
+
+
+// copying and array
+const copyOfArray = [...evenNumbers];   //... IS CALLED SPREAD OPERATOR
+copyOfArray.push(12)
+console.log(copyOfArray); // 2 4 6 8 10 12
+console.log(evenNumbers) // 2 4 6 8 10
+
+
+// forEach & map
+// use forEach() if you want to perfom an action without generating a new array
+// use map() if you want to transform and array and generate a new array
+const nemes = ["Ada", "Bola", "Chidi"];
+names.forEach(name => console.log(`Welcome, ${name}`));
+names.forEach((name, i) => console.log(`${i + 1}. ${name}`));
+console.log(names.forEach(n => n)); // undefined: forEach returns nothing
+
+// const prices = [100, 2500, 4000];
+// const withVat = prices.map(price => {
+//   return price * 2;
+// });
+// console.log(withVat); 
+// console.log(prices);  
+
+// array of object

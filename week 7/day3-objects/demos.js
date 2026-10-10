@@ -148,3 +148,78 @@
   const list = [1, 2, 3];
   console.log([...list, 4], list.filter(n => n !== 2), list.map(n => (n === 3 ? 30 : n)));
 }
+
+
+const car = {
+  model: "2025",
+  tyres: 4,
+  colour: "red",
+  move: function() {
+    console.log("moving");
+  },
+  "engine model": "V8",
+  feautures: ["bullet-proof", "4WD", "proximity-sensors"],
+  displayCarDetails(type) {
+    return `this is a ${type} ${this.model} car`;
+  },
+  myCars: {
+    car1: "buggati",
+    car2: "Mercedes Benz",
+    car3: "BMW"
+  }
+};
+car.model;
+car["engine model"];
+car.move();
+car.feautures[1];
+car.feautures.push("auto-pilot");
+console.log(car.displayCarDetails("SUV"));
+car.myCars.car2;
+car["myCars"]["car3"];
+
+console.log(car);
+
+const studentScores = {
+  maths: 80,
+  english: 56,
+  physics: 65,
+  biology: 39,
+  chemistry: 21,
+  studentBio: {
+    name: "Ada",
+    age: 25,
+    school: "University of Lagos"
+  }
+};
+console.log(Object.keys(studentScores));
+delete studentScores.chemistry;
+
+let studentResult = studentScores.studentBio.name + " scored " + studentScores.physics + " in physics";
+console.log(studentResult);
+
+// Destructuring
+const { maths, english, physics, biology } = studentScores;
+let myResult = studentScores.studentBio.name + " scored " + physics + " in physics";
+console.log(myResult);
+
+
+//updating without mutating
+const user = {
+  name: "Ada",
+  age: 25,
+  address: { city: "Lagos" },
+  married: true
+}
+
+const updatedUser = { ...user, age: 26 }; // ✅ new object
+console.log(updatedUser);
+console.log(user);
+
+const olderUser = user;
+olderUser.name = "Bola";
+console.log(olderUser);
+console.log(user);
+const copyUser = {...user};
+copyUser.address.city = "Abuja";
+console.log(copyUser);
+console.log(user);
